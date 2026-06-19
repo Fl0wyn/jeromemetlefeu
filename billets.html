@@ -106,12 +106,26 @@
     }
 
     .billet-card-head {
-      display: flex;
+      display: grid;
+      grid-template-columns: 56px 1fr auto;
       align-items: center;
-      gap: 1.25rem;
-      padding: 1.25rem 1.5rem;
+      gap: 1rem;
+      padding: 1.1rem 1.25rem;
       background: #1a0a00;
       border-bottom: 1px solid var(--border);
+    }
+
+    /* sur mobile : badge passe sous ville/lieu */
+    @media (max-width: 440px) {
+      .billet-card-head {
+        grid-template-columns: 56px 1fr;
+        grid-template-rows: auto auto;
+      }
+      .billet-dispo {
+        grid-column: 2;
+        justify-self: start;
+        margin-top: 0.4rem;
+      }
     }
 
     .billet-date-badge {
@@ -133,19 +147,16 @@
       color: var(--muted);
     }
 
-    .billet-card-meta { flex: 1; min-width: 0; }
+    .billet-card-meta { min-width: 0; }
     .billet-card-meta .ville {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       font-weight: bold;
       color: var(--cream);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
     .billet-card-meta .lieu {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       color: var(--muted);
-      margin-top: 0.2rem;
+      margin-top: 0.15rem;
     }
 
     .billet-dispo {
